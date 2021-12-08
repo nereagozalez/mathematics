@@ -13,10 +13,14 @@ public class matrix_multiplication_main{
         System.out.println("Matriz Dos:");
         matrizDos = fill_matrix(matrizDos);
         print_matrix(matrizDos);
-        System.out.println("AB =");
+        System.out.println("AB");
         print_matrix(multiplication(matrizUno, matrizDos));
-        System.out.println("eA = ");
+        System.out.println("eA");
         print_matrix(scalar_product(scalar, matrizUno));
+        System.out.println("A + B");
+        print_matrix(sum(matrizUno,matrizDos));
+        System.out.println("Bt");
+        print_matrix(transposed_matrix(matrizDos));
 
     }
 
@@ -77,6 +81,34 @@ public class matrix_multiplication_main{
         }
 
         return p;
+        
+    }
+
+    public static int[][] sum( int[][]matrix_one, int[][]matrix_two ) {
+        
+        int [][] sum = new int [matrix_one.length][matrix_one.length];
+
+        for (int i = 0; i < sum.length; i++) {
+            for (int j = 0; j < sum.length; j++) {
+                sum[i][j] = matrix_one[i][j] + matrix_two[i][j];
+            }
+        }
+
+        return sum;
+        
+    }
+
+    public static int[][] transposed_matrix(int[][]matrix) {
+
+        int [][] transposed = new int [matrix[0].length][matrix.length];
+
+        for (int i = 0; i < transposed.length; i++) {
+            for (int j = 0; j < transposed.length; j++) {
+                transposed[i][j] = matrix[j][i];
+            }
+        }
+
+        return transposed;
         
     }
 }
