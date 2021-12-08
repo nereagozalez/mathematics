@@ -3,8 +3,9 @@ import java.util.Random;
 public class matrix_multiplication_main{
     public static void main(String[] args) {
 
-        int [][] matrizUno = new int [2][2];
-        int [][] matrizDos = new int [2][2];
+        int [][] matrizUno  = new int [2][2];
+        int [][] matrizDos  = new int [2][2];
+        int [][] mC         = new int [1][3];
         int scalar = 5;
 
         System.out.println("Matriz Uno:");
@@ -19,8 +20,10 @@ public class matrix_multiplication_main{
         print_matrix(scalar_product(scalar, matrizUno));
         System.out.println("A + B");
         print_matrix(sum(matrizUno,matrizDos));
-        System.out.println("Bt");
-        print_matrix(transposed_matrix(matrizDos));
+        System.out.println("Ct");
+        mC = fill_matrix(mC);
+        print_matrix((mC));
+        print_matrix(transposed_matrix(mC));
 
     }
 
@@ -98,12 +101,12 @@ public class matrix_multiplication_main{
         
     }
 
-    public static int[][] transposed_matrix(int[][]matrix) {
+    public static int[][] transposed_matrix(int[][]matrix) { //(1 2 4)
 
         int [][] transposed = new int [matrix[0].length][matrix.length];
 
         for (int i = 0; i < transposed.length; i++) {
-            for (int j = 0; j < transposed.length; j++) {
+            for (int j = 0; j < transposed[0].length; j++) {
                 transposed[i][j] = matrix[j][i];
             }
         }
